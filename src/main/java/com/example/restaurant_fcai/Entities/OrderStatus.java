@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Setter
 @Getter
-public class OrderStatue {
+public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,10 +26,10 @@ public class OrderStatue {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private OrderTable orderTable;
+    private Order order;
 
-    public OrderStatue(OrderTable orderTable,  String status,  Date createdAt) {
-        this.orderTable = orderTable;
+    public OrderStatus(Order order,  String status,  Date createdAt) {
+        this.order = order;
         this.status = status;
         this.createdAt = createdAt;
     }

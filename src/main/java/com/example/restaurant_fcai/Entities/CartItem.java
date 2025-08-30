@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+
 
 @Entity
 @AllArgsConstructor
@@ -23,13 +23,19 @@ public class CartItem {
     @Column
     private double price;
 
-    @OneToMany(mappedBy = "cartItem", cascade = CascadeType.ALL)
-    private List<Product> product;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
 
-    public CartItem(int quantity, double price, Product product, Cart cart) {}
+    public CartItem(int quantity, double price, Product product, Cart cart) {
+        this.quantity = quantity;
+        this.price = price;
+        this.product = product;
+        this.cart = cart;
+    }
 
 }

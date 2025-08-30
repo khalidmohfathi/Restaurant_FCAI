@@ -25,12 +25,12 @@ public class Cart {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private OrderTable orderTable;
-
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItem> cartItem;
 
-    public Cart (double totalPrice, Customer customer, OrderTable orderTable,  List<CartItem> cartItem) {}
+    public Cart(double totalPrice, Customer customer, List<CartItem> cartItem) {
+        this.totalPrice = totalPrice;
+        this.customer = customer;
+        this.cartItem = cartItem;
+    }
 }

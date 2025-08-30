@@ -27,7 +27,7 @@ public class Customer extends User {
     private List<Enquiry> enquiry;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL,  orphanRemoval = true)
-    private List<OrderTable> order;
+    private List<Order> order;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL,  orphanRemoval = true)
     private List<Notification> notification;
