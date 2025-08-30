@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-public class OrderTable {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -30,12 +30,12 @@ public class OrderTable {
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "table_id", nullable = false)
+    @JoinColumn(name = "table_id", nullable = true)
     private CustomerTable customerTable;
 
-    @OneToMany(mappedBy = "orderTable", cascade = CascadeType.ALL, orphanRemoval = false)
-    private List<OrderStatue> orderStatue;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = false)
+    private List<OrderStatus> orderStatus;
 
-    @OneToMany(mappedBy = "orderTable", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Rate> rates;
 }

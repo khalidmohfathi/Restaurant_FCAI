@@ -31,8 +31,6 @@ public class Product {
     private Category category;
 
 
-    @ManyToOne
-    @JoinColumn(name = "cart_item_id", nullable = false)
-    private CartItem cartItem;
+
 
 }

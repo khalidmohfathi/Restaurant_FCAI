@@ -35,5 +35,5 @@ public class Rate {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private OrderTable orderTable;
+    private Order order;
 }

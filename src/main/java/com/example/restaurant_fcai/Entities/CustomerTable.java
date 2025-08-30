@@ -24,7 +24,7 @@ public class CustomerTable {
     private int number;
 
     @OneToMany(mappedBy = "customerTable", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderTable> orderTables;
+    private List<Order> orders;
 
     public CustomerTable(String qrCode, int number) {}
 }
