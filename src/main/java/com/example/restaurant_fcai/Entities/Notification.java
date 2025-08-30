@@ -1,26 +1,21 @@
 package com.example.restaurant_fcai.Entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Instant;
+
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
-@Getter
+@Getter @Setter
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;
-
-    public Notification(Customer customer) {
-        this.customer = customer;
-    }
+    private String userId;
+    private String title;
+    @Column(columnDefinition = "TEXT")
+    private String message;
+    private boolean readFlag = false;
+    private Instant createdAt = Instant.now();
 }
