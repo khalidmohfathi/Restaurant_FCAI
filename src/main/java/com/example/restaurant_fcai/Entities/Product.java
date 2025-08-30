@@ -20,9 +20,9 @@ public class Product {
     @Column
     private String description;
     @Column
-    private double price;
+    private Double price;
     @Column
-    private boolean isAvailable;
+    private Boolean isAvailable;
     @Column
     private String image;
 
@@ -35,4 +35,11 @@ public class Product {
     @JoinColumn(name = "cart_item_id", nullable = false)
     private CartItem cartItem;
 
+    public Long getCategoryId() {
+        return category.getId();
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.category.setId(categoryId);
+    }
 }
