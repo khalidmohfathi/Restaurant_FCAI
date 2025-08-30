@@ -37,5 +37,16 @@ public abstract class User {
     @Column
     private String phone;
 
+    @Column(name = "reset_token")
+    private String resetToken;
+
+    @Column(name = "reset_token_expiry")
+    private java.time.LocalDateTime resetTokenExpiry;
+
     public User(String name, String email, String password, String phone) {}
+
+
+    @JoinColumn(name = "role_id" , nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    UserRole role;
 }
