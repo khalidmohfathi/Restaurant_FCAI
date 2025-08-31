@@ -71,24 +71,24 @@ public class AuthController {
                 .build());
     }
 
-    @PostMapping("resetpassword")
-    public ResponseEntity<MessageResponse> requestPasswordReset(@Valid @RequestBody PasswordResetRequest request) {
-        try {
-            authenticationService.requestPasswordReset(request);
-            return ResponseEntity.ok(MessageResponse.builder()
-                    .message("Reset link sent")
-                    .build());
-        } catch (RuntimeException e) {
-            if (e.getMessage().contains("not found")) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MessageResponse.builder()
-                        .message("User not found with this email")
-                        .build());
-            }
-            return ResponseEntity.badRequest().body(MessageResponse.builder()
-                    .message(e.getMessage())
-                    .build());
-        }
-    }
+//    @PostMapping("resetpassword")
+//    public ResponseEntity<MessageResponse> requestPasswordReset(@Valid @RequestBody PasswordResetRequest request) {
+//        try {
+//            authenticationService.requestPasswordReset(request);
+//            return ResponseEntity.ok(MessageResponse.builder()
+//                    .message("Reset link sent")
+//                    .build());
+//        } catch (RuntimeException e) {
+//            if (e.getMessage().contains("not found")) {
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MessageResponse.builder()
+//                        .message("User not found with this email")
+//                        .build());
+//            }
+//            return ResponseEntity.badRequest().body(MessageResponse.builder()
+//                    .message(e.getMessage())
+//                    .build());
+//        }
+//    }
 
     // @PostMapping("/resetpassword/confirm")
     // public ResponseEntity<MessageResponse> confirmPasswordReset(@Valid @RequestBody PasswordResetConfirmRequest request) {
