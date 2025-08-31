@@ -43,7 +43,12 @@ public abstract class User {
     @Column(name = "reset_token_expiry")
     private java.time.LocalDateTime resetTokenExpiry;
 
-    public User(String name, String email, String password, String phone) {}
+    public User(String name, String email, String phone, String password) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
 
 
     @JoinColumn(name = "role_id" , nullable = false)

@@ -18,7 +18,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 public class AuthController {
@@ -71,7 +71,7 @@ public class AuthController {
                 .build());
     }
 
-    @PostMapping("/resetpassword")
+    @PostMapping("resetpassword")
     public ResponseEntity<MessageResponse> requestPasswordReset(@Valid @RequestBody PasswordResetRequest request) {
         try {
             authenticationService.requestPasswordReset(request);
